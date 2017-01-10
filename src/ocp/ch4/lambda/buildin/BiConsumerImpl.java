@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.foehn.lambda;
+package ocp.ch4.lambda.buildin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import java.util.function.BiConsumer;
  *
  * @author 10405
  */
-public class BiConsumerSample {
+public class BiConsumerImpl {
 
     public static void main(String[] args) {
         // Sample 1

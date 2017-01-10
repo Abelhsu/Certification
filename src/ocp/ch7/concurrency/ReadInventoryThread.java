@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.foehn.lambda;
-
-import java.util.function.Consumer;
+package ocp.ch7.concurrency;
 
 /**
  *
  * @author 10405
  */
-public class CustomerSample {
+public class ReadInventoryThread extends Thread {
+
+    @Override
+    public void run() {
+        System.out.println("Printing zoo inventory");
+    }
 
     public static void main(String[] args) {
-        Consumer<String> c1 = System.out::println;
-        Consumer<String> c2 = System.out::println;
-        c1.accept("Abel");
-        c2.accept("Foehn");
+        (new ReadInventoryThread()).start();
     }
 }

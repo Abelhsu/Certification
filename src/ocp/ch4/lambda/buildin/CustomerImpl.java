@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.foehn.lambda;
+package ocp.ch4.lambda.buildin;
 
-import java.util.function.Predicate;
+import java.util.function.Consumer;
 
 /**
  *
  * @author 10405
  */
-public class PredicateSample {
+public class CustomerImpl {
 
     public static void main(String[] args) {
-        Predicate<String> p1 = String::isEmpty;
-        Predicate<String> p2 = x -> x.isEmpty();
-        System.out.println(p1.test("..."));
-        System.out.println(p2.test(""));
+        Consumer<String> c1 = System.out::println;
+        Consumer<String> c2 = System.out::println;
+        c1.accept("Abel");
+        c2.accept("Foehn");
     }
 }

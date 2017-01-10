@@ -1,4 +1,4 @@
-package com.foehn.lambda;
+package ocp.ch4.lambda.example;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

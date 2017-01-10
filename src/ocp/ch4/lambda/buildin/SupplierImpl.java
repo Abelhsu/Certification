@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.foehn.lambda;
+package ocp.ch4.lambda.buildin;
 
 import java.util.function.Supplier;
 
@@ -11,7 +11,7 @@ import java.util.function.Supplier;
  *
  * @author 10405
  */
-public class SupplierSample {
+public class SupplierImpl {
 
     public static void main(String[] args) {
         Supplier<StringBuilder> s1 = StringBuilder::new;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.foehn.lambda;
+package ocp.ch4.lambda.buildin;
 
 import java.util.function.BiPredicate;
 
@@ -11,7 +11,7 @@ import java.util.function.BiPredicate;
  *
  * @author 10405
  */
-public class BiPredicateSample {
+public class BiPredicateImpl {
 
     public static void main(String[] args) {
         BiPredicate<String, String> b1 = String::startsWith;
