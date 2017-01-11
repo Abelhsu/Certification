@@ -8,6 +8,7 @@ package ocp.ch4.lambda.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -50,5 +51,13 @@ public class TerminalOperationImpl {
         System.out.println(word);
         Stream<Integer> multiply = Stream.of(3, 5, 6, 10);
         System.out.println(multiply.reduce(1, (a, b) -> a * b));
+        BinaryOperator<Integer> op = (a, b) -> a * b;
+        multiply = Stream.of(3, 5, 6);
+        System.out.println(multiply.reduce(1, op, op));
+        // collect()
+        System.out.println("【collect()】");
+        stream = Stream.of("w", "o", "l", "f");
+        StringBuilder sb = stream.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
+        System.out.println("sb = " + sb);
     }
 }
