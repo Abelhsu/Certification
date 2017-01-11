@@ -48,7 +48,7 @@ public class TerminalOperationImpl {
         stream = Stream.of("F", "o", "e", "h", "n");
         word = stream.reduce("", String::concat);
         System.out.println(word);
-        Stream<Integer> multiply = Stream.of(3, 5, 6);
+        Stream<Integer> multiply = Stream.of(3, 5, 6, 10);
         System.out.println(multiply.reduce(1, (a, b) -> a * b));
     }
 }
