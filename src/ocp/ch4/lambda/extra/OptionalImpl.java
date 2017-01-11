@@ -20,7 +20,12 @@ public class OptionalImpl {
         Optional<Double> opt = average(90, 100);
         opt.ifPresent(System.out::println);
         System.out.println("Average= " + opt.get());
-        // orElse(), orElseGet(), orElseThrow()
+        // orElse(), orElseGet(), orElseThrow() - value does exist
+        opt = average(90, 100);
+        System.out.println(opt.orElse(Double.NaN));
+        System.out.println(opt.orElseGet(() -> Math.random()));
+        System.out.println(opt.orElseThrow(() -> new IllegalStateException()));
+        // orElse(), orElseGet(), orElseThrow() - value does not exist
         opt = average();
         System.out.println(opt.orElse(Double.NaN));
         System.out.println(opt.orElseGet(() -> Math.random()));
