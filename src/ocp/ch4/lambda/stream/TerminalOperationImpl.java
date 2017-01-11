@@ -8,8 +8,11 @@ package ocp.ch4.lambda.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TerminalOperationImpl {
@@ -54,10 +57,23 @@ public class TerminalOperationImpl {
         BinaryOperator<Integer> op = (a, b) -> a * b;
         multiply = Stream.of(3, 5, 6);
         System.out.println(multiply.reduce(1, op, op));
-        // collect()
+        // collect() same accumulator, combiner
         System.out.println("【collect()】");
         stream = Stream.of("w", "o", "l", "f");
         StringBuilder sb = stream.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
         System.out.println("sb = " + sb);
+        // collect() different accumulator, combiner
+        System.out.println("【accumulator, combiner】");
+        stream = Stream.of("w", "o", "l", "f");
+        TreeSet<String> set = stream.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+        System.out.println(set);
+        //
+        stream = Stream.of("w", "o", "l", "f");
+        set = stream.collect(Collectors.toCollection(TreeSet::new));
+        System.out.println(set);
+        //
+        stream = Stream.of("w", "o", "l", "f");
+        Set<String> iset = stream.collect(Collectors.toSet());
+        System.out.println(iset);
     }
 }
