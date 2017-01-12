@@ -5,6 +5,7 @@
  */
 package ocp.ch4.lambda.stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -39,5 +40,18 @@ public class IntermediateOperationImpl {
         List<String> two = Arrays.asList("Mama Gorilla", "Baby Gorilla");
         Stream<List<String>> animals = Stream.of(two, zero, one);
         animals.flatMap(l -> l.stream()).forEach(System.out::println);
+        // peek()
+        System.out.println("【peek()】");
+        stream = Stream.of("black bear", "brown bear", "grizzly");
+        long count = stream.filter(t -> t.startsWith("g")).peek(System.out::println).count();
+        System.out.println(count);
+        // Changing State with peek()
+        System.out.println("【Changing State with peek()】");
+        List<Integer> numbers = new ArrayList<>();
+        List<Character> letters = new ArrayList<>();
+        numbers.add(1);
+        letters.add('a');
+        Stream<List<?>> ostream = Stream.of(numbers, letters);
+        ostream.map((List::size)).forEach(System.out::println);
     }
 }
