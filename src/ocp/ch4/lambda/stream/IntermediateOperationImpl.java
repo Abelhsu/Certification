@@ -45,13 +45,22 @@ public class IntermediateOperationImpl {
         stream = Stream.of("black bear", "brown bear", "grizzly");
         long count = stream.filter(t -> t.startsWith("g")).peek(System.out::println).count();
         System.out.println(count);
-        // Changing State with peek()
-        System.out.println("【Changing State with peek()】");
+        // Changing State without peek()
+        System.out.println("【Changing State without peek()】");
         List<Integer> numbers = new ArrayList<>();
         List<Character> letters = new ArrayList<>();
         numbers.add(1);
         letters.add('a');
         Stream<List<?>> ostream = Stream.of(numbers, letters);
         ostream.map((List::size)).forEach(System.out::println);
+        // Changing State with peek()
+        System.out.println("【Changing State with peek()】");
+        StringBuilder builder = new StringBuilder();
+        Stream<List<?>> good = Stream.of(numbers, letters);
+        good.peek(l -> builder.append(l)).map(List::size).forEach(System.out::println);
+        System.out.println(builder);
+        System.out.println("【Changing State with peek()】");
+        good.peek(l -> l.remove(0)).map(List::size).forEach(System.out::println);
+        System.out.println(builder);
     }
 }
